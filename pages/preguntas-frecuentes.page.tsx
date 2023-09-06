@@ -54,8 +54,8 @@ export const getStaticProps: GetStaticProps = async () => {
   const response = await fetch("http://localhost:3000/api/faqs");
   
   const faqs = await response.json();
-  const ruta = window.location.pathname
-  console.log(ruta);
+  // const ruta = window.location.pathname
+  // console.log(ruta);
 
   return {
     props: {
