@@ -51,7 +51,7 @@ const FAQSPage: NextPage<Props> = ({ faqs }) => {
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-  const response = await fetch("https://ctd-esp-fe3-final-swart.vercel.app/api/faqs");
+  const response = await fetch("https://final-front-3-git-main-nallis02.vercel.app/api/faqs");
   
   const faqs = await response.json();
   // const ruta = window.location.pathname
