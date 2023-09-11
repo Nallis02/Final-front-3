@@ -6,7 +6,7 @@ import {
   getComics,
   getComicsByPage,
 } from "dh-marvel/services/marvel/marvel.service";
-import GridLayout from "dh-marvel/components/layouts/grid-layout/grid-layout";
+import GridLayout from "dh-marvel/components/layouts/grid-layout/grid-layout.component";
 import { useEffect, useState } from "react";
 import { IComicResponse } from "types/index.types";
 import { useRouter } from "next/router";
