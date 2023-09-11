@@ -15,7 +15,7 @@ interface Props {
   comics: IComicResponse;
 }
 
-const QTY_OF_CARDS = 12;
+const CANTIDAD_TARJETAS = 12;
 
 const Index: NextPage<Props> = ({ comics }) => {
   const [comicsData, setComicsData] = useState<IComicResponse>();
@@ -25,7 +25,7 @@ const Index: NextPage<Props> = ({ comics }) => {
     if (currentPage !== null) {
       router.push(`/?page=${currentPage}`, undefined, { shallow: true });
 
-      getComicsByPage(QTY_OF_CARDS, currentPage).then(
+      getComicsByPage(CANTIDAD_TARJETAS, currentPage).then(
         (data: IComicResponse) => {
           if (data.code === 200) {
             setComicsData(data);
@@ -44,7 +44,7 @@ const Index: NextPage<Props> = ({ comics }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <BodySingle title={"Sample"}>
+      <BodySingle title={"Comics de Marvel"}>
         <GridLayout
           comics={
             comicsData === undefined
@@ -58,7 +58,7 @@ const Index: NextPage<Props> = ({ comics }) => {
   );
 };
 export async function getServerSideProps() {
-  const comics = await getComics(0, QTY_OF_CARDS);
+  const comics = await getComics(0, CANTIDAD_TARJETAS);
   return { props: { comics } };
 }
 export default Index;

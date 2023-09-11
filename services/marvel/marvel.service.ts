@@ -72,14 +72,14 @@ export const getComicsById = async (id: number): Promise<any> => {
   };
 
   export const getComicsByPage = async (
-    qtyOfCards: number,
+    cantidadTarjetas: number,
     pageNumber: number
   ): Promise<any> => {
-    const offset = qtyOfCards * pageNumber - qtyOfCards;
+    const offset = cantidadTarjetas * pageNumber - cantidadTarjetas;
     const params = new URLSearchParams();
   
     if (offset) params.set("offset", `${offset}`);
-    if (qtyOfCards) params.set("limit", `${qtyOfCards}`);
+    if (cantidadTarjetas) params.set("limit", `${cantidadTarjetas}`);
   
     const paramsToFetch = params.toString();
     const response = await fetch(`/api/comics?${paramsToFetch || ""}`);
