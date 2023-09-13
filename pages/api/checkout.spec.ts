@@ -16,8 +16,8 @@ import {
 } from "dh-marvel/services/checkout/checkout.errors";
 
 describe('Checkout', () => {
-    describe('when sending a valid POST, customer and card data', () => {
-        it('should return a 400 error', async () => {
+    describe('cuando se envía una solicitud POST válida con datos de cliente y tarjeta válidos', () => {
+        it('debería devolver un error 400', async () => {
             const order = {customer: {address: {}}, card: {number: validCard}} as CheckoutInput
             const {req, res} = createMocks({
                 method: 'POST',
@@ -30,8 +30,8 @@ describe('Checkout', () => {
             );
         })
     })
-    describe('when sending a non POST request', () => {
-        it('should return a 405 error', async () => {
+    describe('cuando se envía una solicitud que no es POST', () => {
+        it('debería devolver un error 405', async () => {
             const {req, res} = createMocks({
                 method: 'GET',
             });
@@ -42,8 +42,8 @@ describe('Checkout', () => {
             );
         })
     })
-    describe('when sending an invalid address', () => {
-        it('should return a 400 error', async () => {
+    describe('cuando se envía una dirección no válida', () => {
+        it('debería devolver un error 400', async () => {
             const {req, res} = createMocks({
                 method: 'POST',
                 body: {customer: {address: {address2: invalidAddress}}} as CheckoutInput
@@ -55,8 +55,8 @@ describe('Checkout', () => {
             );
         })
     })
-    describe('when sending an invalid form', () => {
-        it('should return a 500 error', async () => {
+    describe('cuando se envía un formulario no válido', () => {
+        it('debería devolver un error 500', async () => {
             const {req, res} = createMocks({
                 method: 'POST',
                 body: {} as CheckoutInput
@@ -68,8 +68,8 @@ describe('Checkout', () => {
             );
         })
     })
-    describe('when sending a card without funds', () => {
-        it('should return a 400 error', async () => {
+    describe('cuando se envía una tarjeta sin fondos', () => {
+        it('debería devolver un error 400', async () => {
             const {req, res} = createMocks({
                 method: 'POST',
                 body: {customer: {address: {}}, card: {number: withoutFundsCard}} as CheckoutInput
@@ -81,8 +81,8 @@ describe('Checkout', () => {
             );
         })
     })
-    describe('when sending a card without authorization', () => {
-        it('should return a 400 error', async () => {
+    describe('cuando se envía una tarjeta sin autorización', () => {
+        it('debería devolver un error 400', async () => {
             const {req, res} = createMocks({
                 method: 'POST',
                 body: {customer: {address: {}}, card: {number: withoutAuthorizationCard}} as CheckoutInput
@@ -94,8 +94,8 @@ describe('Checkout', () => {
             );
         })
     })
-    describe('when sending a card with invalid data', () => {
-        it('should return a 400 error', async () => {
+    describe('cuando se envía una tarjeta con datos no válidos', () => {
+        it('debería devolver un error 400', async () => {
             const {req, res} = createMocks({
                 method: 'POST',
                 body: {customer: {address: {}}, card: {number: '4111'}} as CheckoutInput

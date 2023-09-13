@@ -1,23 +1,25 @@
-import React, { ChangeEvent, FC, useState } from "react";
-import { Pagination, Stack } from "@mui/material";
+import { ChangeEvent, useState } from "react";
+import { Pagination, Box } from "@mui/material";
+import { NextPage } from "next";
 
 interface Props {
-  pagesQty: number;
+  cantidadPaginas: number;
   setCurrentPage: (page: number) => void;
 }
 
-const Paginacion: FC<Props> = ({ pagesQty, setCurrentPage }) => {
-  const [page, setPage] = useState<number>(1);
+const PaginationComponent: NextPage<Props> = ({
+  cantidadPaginas,
+  setCurrentPage,
+}) => {
   const handleChange = (event: ChangeEvent<unknown>, value: number) => {
-    setPage(value);
     setCurrentPage(value);
   };
 
   return (
-    <Stack spacing={2}>
-      <Pagination count={pagesQty} onChange={handleChange} />
-    </Stack>
+    <Box display="flex" justifyContent="center">
+      <Pagination count={cantidadPaginas} onChange={handleChange} />
+    </Box>
   );
 };
 
-export default Paginacion;
+export default PaginationComponent;

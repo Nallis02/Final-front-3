@@ -207,7 +207,7 @@ Este Layout, debera ser utilizado en las siguientes páginas:
 * [Página 3: Detalle del Personaje (Character)](#pgina-3-detalle-del-personaje-character)
 * [Página 6: Preguntas frecuentes (FAQ)](#pgina-6-preguntas-frecuentes-faq)
 
-El mismo contiene un encabezado (Header) con links navegables que deberán ser ajustados con sus correspondientes rutas, y
+El mismo contiene un encabezado (Header) con links navegables que deberán ser ajustados con sus correspondientes , y
 un pie de página que no requiere de modificación alguna.
 
 Archivo: [components/layouts/layout-general.tsx](components/layouts/layout-general.tsx)

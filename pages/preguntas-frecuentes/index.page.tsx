@@ -1,4 +1,3 @@
-import React from "react";
 import {
   Accordion,
   AccordionSummary,
@@ -23,6 +22,7 @@ const FAQSPage: NextPage<Props> = ({ faqs }) => {
   return (
     <>
       <Head>
+        <link rel="icon" href="/marvel.jpg" />
         <title>Preguntas Frecuentes</title>
         <meta
           name="description"
@@ -54,8 +54,6 @@ export const getStaticProps: GetStaticProps = async () => {
   const response = await fetch("https://final-front-3-git-main-nallis02.vercel.app/api/faqs");
   
   const faqs = await response.json();
-  // const ruta = window.location.pathname
-  // console.log(ruta);
 
   return {
     props: {

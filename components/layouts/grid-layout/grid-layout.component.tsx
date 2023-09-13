@@ -1,5 +1,5 @@
 import type { NextPage } from "next";
-import CardComponent from "dh-marvel/components/card/card.component";
+import ComicCard from "dh-marvel/components/card/card.component";
 import { Grid } from "@mui/material";
 import { IComic } from "types/index.types";
 
@@ -18,15 +18,13 @@ const GridLayout: NextPage<Props> = ({
   sm = 12,
   md = 6,
   lg = 4,
-  xl = 3,
+  xl = 4,
 }) => {
   const renderResults = () =>
     comics?.map((comic) => {
-      console.log(comic);
-      
       return (
         <Grid item xs={xs} sm={sm} md={md} lg={lg} xl={xl} key={comic.id}>
-          <CardComponent comic={comic} />
+          <ComicCard comic={comic} />
         </Grid>
       );
     });

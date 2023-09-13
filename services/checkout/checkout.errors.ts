@@ -1,29 +1,29 @@
 export const ERROR_METHOD_NOT_ALLOWED = {
-    error: 'METHOD_NOT_ALLOWED',
-    message: "Method not allowed"
+    error: 'MÉTODO_NO_PERMITIDO',
+    message: "Método no permitido"
 }
 
 export const ERROR_CARD_WITHOUT_FUNDS = {
-    error: 'CARD_WITHOUT_FUNDS',
-    message: "The card doesn't have the require amount to do the transfer"
+    error: 'TARJETA_SIN_FONDOS',
+    message: "La tarjeta no tiene el saldo necesario para realizar la transferencia"
 }
 
 export const ERROR_CARD_WITHOUT_AUTHORIZATION = {
-    error: 'CARD_WITHOUT_AUTHORIZATION',
-    message: "The card cannot authorize the payment. Please call your bank before try again"
+    error: 'TARJETA_SIN_AUTORIZACIÓN',
+    message: "La tarjeta no puede autorizar el pago. Por favor, llame a su banco antes de intentarlo nuevamente"
 }
 
 export const ERROR_CARD_DATA_INCORRECT = {
-    error: 'CARD_DATA_INCORRECT',
-    message: "The card data is not valid. Please review your data and submit it again"
+    error: 'DATOS_DE_TARJETA_INCORRECTOS',
+    message: "Los datos de la tarjeta no son válidos. Por favor, revise sus datos y envíelos nuevamente"
 }
 
 export const ERROR_INCORRECT_ADDRESS = {
-    error: 'INCORRECT_ADDRESS',
-    message: "The address data is invalid. Please review your data and submit it again"
+    error: 'DIRECCIÓN_INCORRECTA',
+    message: "Los datos de la dirección no son válidos. Por favor, revise sus datos y envíelos nuevamente"
 }
 
 export const ERROR_SERVER = {
-    error: 'SERVER_ERROR',
-    message: "Server error. Please try again in a few seconds"
+    error: 'ERROR_DEL_SERVIDOR',
+    message: "Error del servidor. Por favor, inténtelo nuevamente en unos segundos"
 }
