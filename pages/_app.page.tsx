@@ -3,6 +3,7 @@ import {CssBaseline, ThemeProvider} from "@mui/material";
 import LayoutGeneral from "dh-marvel/components/layouts/layout-general";
 import {marvelTheme} from "dh-marvel/styles/material-theme";
 
+
 function MyApp({ Component, pageProps }: AppProps) {
   return <ThemeProvider theme={marvelTheme}>
     <CssBaseline />

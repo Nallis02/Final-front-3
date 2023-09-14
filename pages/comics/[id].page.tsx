@@ -1,14 +1,10 @@
 import type { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import Head from "next/head";
 import {
-  Accordion,
-  AccordionDetails,
-  AccordionSummary,
   Box,
   Button,
   Grid,
   Stack,
-  Typography,
 } from "@mui/material";
 import { getComic, getComics } from "dh-marvel/services/marvel/marvel.service";
 import { useRouter } from "next/router";
@@ -70,6 +66,7 @@ const Comic: NextPage<Props> = ({ comic }) => {
                     margin: "auto",
                     maxWidth: "100%",
                     maxHeight: "100%",
+                    borderRadius: '5px'
                   }}
                 />
               </Box>
@@ -81,7 +78,6 @@ const Comic: NextPage<Props> = ({ comic }) => {
                   paddingBottom: "90px",
                 }}
               >
-               
                 {comic.stock > 0 ? (
                   <NextLink
                     href={{

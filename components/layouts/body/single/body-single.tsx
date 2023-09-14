@@ -15,21 +15,28 @@ const BodySingle: NextPage<BodySingleProps> = ({
 }: BodySingleProps) => {
   return (
     <Container maxWidth="xl" {...containerProps}>
-      <Stack direction={"column"} display={"flex"} justifyContent={"center"}>
-        {title && (
-          <Typography
-            variant={"h2"}
-            my={2}
-            textAlign={"center"}
-            fontSize={28}
-            fontWeight={600}
-          >
-            {title}
-          </Typography>
-        )}
-        {children}
-      </Stack>
-    </Container>
+    <Stack
+      direction={"column"}
+      display={"flex"}
+      justifyContent={"center"}
+      mt={4}
+      p={3}
+    >
+      {title && (
+        <Typography
+          variant={"h2"}
+          my={2}
+          textAlign={"center"}
+          fontSize={28}
+          fontWeight={600}
+        >
+          {title}
+        </Typography>
+      )}
+      {children}
+    </Stack>
+  </Container>
+  
   );
 };
 export default BodySingle;

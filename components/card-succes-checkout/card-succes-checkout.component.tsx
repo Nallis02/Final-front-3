@@ -18,7 +18,6 @@ const CardSuccessCheckout: NextPage<CardSuccessCheckoutProps> = ({ data }) => {
         alignItems: "center",
         padding: { xs: "20px", sm: "50px 90px" },
         background: "#fcfcfc",
-        boxShadow: "12px 12px #000",
       }}
     >
       <CheckCircleOutlineIcon
@@ -46,7 +45,6 @@ const CardSuccessCheckout: NextPage<CardSuccessCheckoutProps> = ({ data }) => {
             sx={{
               maxWidth: 500,
               width: "100%",
-              border: "3px solid #000",
             }}
           />
         </Box>
@@ -61,6 +59,7 @@ const CardSuccessCheckout: NextPage<CardSuccessCheckoutProps> = ({ data }) => {
           </Typography>
           <Typography paddingBottom={1}>
             Comprador {data?.customer.name}
+            {' '} 
             {data?.customer.lastname}
           </Typography>
           <Typography paddingBottom={1}>

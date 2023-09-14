@@ -1,6 +1,7 @@
 import Box from "@mui/material/Box";
 import Image from "next/image";
-import { Link } from "@mui/material";
+import { Link, Typography } from "@mui/material";
+import { marvelTheme } from "dh-marvel/styles/material-theme";
 
 const GeneralFooter = () => {
   return (
@@ -11,10 +12,10 @@ const GeneralFooter = () => {
       alignItems="center"
       justifyContent={"center"}
       borderTop={"1px solid #eaeaea"}
-      sx={{ backgroundColor: "#000" }}
+      sx={{ backgroundColor: marvelTheme.palette.primary.main }} 
     >
       <Link
-        href="https://www.digitalhouse.com"
+        href="https://www.linkedin.com/in/lida-nallive-trujillo-mu%C3%B1oz-803aa7200/"
         target="_blank"
         rel="noopener noreferrer"
         display={"flex"}
@@ -24,20 +25,21 @@ const GeneralFooter = () => {
         color={"#fff"}
         sx={{ textDecoration: "none" }}
       >
-        Powered by{" "}
+        By
         <Box
           ml={"0.5rem"}
           display={"flex"}
           alignItems="center"
           justifyContent={"center"}
         >
-          <Image
-            src="https://dh-frontend.cdn.prismic.io/dh-frontend/f197059f-7cf3-4a35-a182-314ea08cb560_LogoHeader.svg"
-            alt="Digital House Logo"
-            width={168}
-            height={13}
-          />
+          {/* <Image
+            // src=""
+            // alt="Digital House Logo"
+            // width={168}
+            // height={13}
+          /> */}
         </Box>
+        <Typography> Nallive Trujillo</Typography>
       </Link>
     </Box>
   );

@@ -3,7 +3,6 @@ import { IComic } from "types/index.types";
 import Card from "@mui/material/Card";
 import {
   Box,
-  CardActions,
   CardContent,
   CardMedia,
   Typography,
@@ -20,34 +19,47 @@ const ComicCard: NextPage<Props> = ({ comic }) => {
   const router = useRouter();
 
   return (
-    <Box>
-      <Card variant="elevation"  >
-        <Box>
-          <CardMedia
-            component="img"
-            height="350"
-            image={`${comic.thumbnail.path}.${comic.thumbnail.extension}`}
-            alt={comic.title}
-          />
-          <CardContent>
-            <Typography gutterBottom variant="h5" component="div">
-              {comic.title}
-            </Typography>
-          </CardContent>
-        </Box>
-        <CardActions>
+    <Box mb={4} width="auto" position="relative">
+      <Card variant="elevation">
+        <CardMedia
+          component="img"
+          image={`${comic.thumbnail.path}.${comic.thumbnail.extension}`}
+          alt={comic.title}
+        />
+        <CardContent>
+          <Typography gutterBottom component="div">
+            {comic.title}
+          </Typography>
+        </CardContent>
+        <Box
+          position="absolute"
+          bottom="80px"
+          left="0"
+          right="0"
+          textAlign="center"
+          p={2}
+          bgcolor="rgba(255, 255, 255, 0.7)"
+        >
           <NextLink href={`/comics/${comic.id}`} passHref>
-            <Button variant="contained">
+            <Button
+              variant="contained"
+              color="primary"
+              style={{ margin: "0 5px" }}
+            >
               Ver detalles
             </Button>
           </NextLink>
           <NextLink href={`/comics/${comic.id}`} passHref>
-            <Button variant="contained">
+            <Button
+              variant="contained"
+              color="primary"
+              style={{ margin: "0 5px" }}
+            >
               Comprar
             </Button>
           </NextLink>
           <ComprarUnClic comic={comic} />
-        </CardActions>
+        </Box>
       </Card>
     </Box>
   );

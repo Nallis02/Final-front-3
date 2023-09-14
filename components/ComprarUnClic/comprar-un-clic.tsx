@@ -24,10 +24,12 @@ const ComprarUnClic: NextPage<Props> = ({ comic }) => {
 
   return (
     <Box sx={{ display: "flex", justifyContent: "center", margin: "8px" }}>
-      <Button variant="contained" onClick={() => comprarComic(comic.id)}>
+      <Button type='button' variant="contained" onClick={() => comprarComic(comic.id)}
+      >
         Compra en 1 click
       </Button>
     </Box>
+    
   );
 };
 

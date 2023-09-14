@@ -7,16 +7,21 @@ import Head from "next/head";
 import LayoutCheckout from "dh-marvel/components/layouts/layout-checkout";
 import { Cargando } from "dh-marvel/components/cargando/cargando.component";
 import { ICheckout } from "types/index.types";
+import confetti from 'canvas-confetti';
 
 const ConfirmacionCompraPage = () => {
   const router = useRouter();
   const [dataCheckout, setDataCheckout] = useState<ICheckout>();
-  console.log(dataCheckout);
-  
+  useEffect(() => {
+    const confettiOptions = {
+      particleCount: 100,
+      spread: 70,
+      origin: { y: 0.7 },
+    };
+    confetti(confettiOptions);
+  }, []);
   useEffect(() => {
     const data = localStorage.getItem("checkoutData");
-    console.log(data);
-    
     if (data !== null) {
       const obj = JSON.parse(data);
       setDataCheckout(obj);
@@ -24,7 +29,9 @@ const ConfirmacionCompraPage = () => {
       router.push("/");
     }
   }, [router]);
-
+  const handleVolverInicio = () => {
+    localStorage.removeItem("checkoutData");
+  };
   if (!dataCheckout) {
     return <Cargando />;
   }
@@ -66,7 +73,6 @@ const ConfirmacionCompraPage = () => {
               margin: 5,
             }}
           />
-
           <Typography variant="h4" paddingBottom={2}>
             ¡Que disfrutes tu compra!
           </Typography>
@@ -76,7 +82,6 @@ const ConfirmacionCompraPage = () => {
             textAlign="center"
             fontWeight="bold"
           >
-            {/* {dataCheckout.orderData.nombre} */}
           </Typography>
           <Stack
             direction="row"
@@ -89,8 +94,6 @@ const ConfirmacionCompraPage = () => {
             <Box sx={{ width: "100%" }}>
               <Box
                 component="img"
-                // alt={dataCheckout.orderData.nombre}
-                // src={`${dataCheckout.orderData.imagen}`}
                 sx={{
                   maxWidth: 400,
                   width: "100%",
@@ -112,21 +115,17 @@ const ConfirmacionCompraPage = () => {
                 Datos de entrega:
               </Typography>
               <Typography paddingBottom={1}>
-                {/* Comprador: {dataCheckout.personalData.nombre}{" "}
-                {dataCheckout.personalData.apellido} */}
               </Typography>
               <Typography paddingBottom={1}>
-                {/* Dirección de envío: {dataCheckout.personalData.direccion.calle} */}
               </Typography>
               <Typography paddingBottom={1}>
-                {/* Precio: ${dataCheckout.orderData.total} */}
               </Typography>
             </Box>
           </Stack>
         </Card>
         <NextLink href="/">
-          <Button variant="outlined" sx={{ margin: 5 }}>
-            Volver a la home
+          <Button variant="outlined" sx={{ margin: 5 }} onClick={handleVolverInicio}>
+            Volver a la Inicio
           </Button>
         </NextLink>
       </Stack>

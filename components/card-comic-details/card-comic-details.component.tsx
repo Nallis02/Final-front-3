@@ -47,7 +47,7 @@ const CardComicDetails: NextPage<Props> = ({ comic }) => {
           )}
 
           {offert > 0 && (
-            <Typography variant="h6" color="text.secondary">
+            <Typography variant="h6" color="primary">
               {offert}% OFF!
             </Typography>
           )}
