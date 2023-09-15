@@ -73,6 +73,8 @@ export const getComicsByPage = async (
   cantidadTarjetas: number,
   pageNumber: number
 ): Promise<any> => {
+  console.log(cantidadTarjetas, pageNumber);
+  
   const offset = cantidadTarjetas * pageNumber - cantidadTarjetas;
   const params = new URLSearchParams();
 

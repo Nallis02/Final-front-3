@@ -14,7 +14,6 @@ const PaginationComponent: NextPage<Props> = ({
   const handleChange = (event: ChangeEvent<unknown>, value: number) => {
     setCurrentPage(value);
   };
-
   return (
     <Box display="flex" justifyContent="center">
       <Pagination count={cantidadPaginas} onChange={handleChange} />

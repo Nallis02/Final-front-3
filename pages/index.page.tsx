@@ -10,7 +10,7 @@ import GridLayout from "dh-marvel/components/layouts/grid-layout/grid-layout.com
 import { useEffect, useState } from "react";
 import { IComicResponse } from "types/index.types";
 import { useRouter } from "next/router";
-import Paginacion from "dh-marvel/components/paginacion/paginacion.component";
+import PaginationComponent from "dh-marvel/components/paginacion/paginacion.component";
 interface Props {
   comics: IComicResponse;
 }
@@ -18,6 +18,8 @@ interface Props {
 const CANTIDAD_TARJETAS = 12;
 
 const Index: NextPage<Props> = ({ comics }) => {
+  console.log(comics);
+  
   const [comicsData, setComicsData] = useState<IComicResponse>();
   const router = useRouter();
   const [currentPage, setCurrentPage] = useState<number | null>(null);
@@ -25,7 +27,7 @@ const Index: NextPage<Props> = ({ comics }) => {
     if (currentPage !== null) {
       router.push(`/?page=${currentPage}`, undefined, { shallow: true });
 
-      getComicsByPage(CANTIDAD_TARJETAS, currentPage).then(
+      getComics(CANTIDAD_TARJETAS, currentPage).then(
         (data: IComicResponse) => {
           if (data.code === 200) {
             setComicsData(data);
@@ -36,6 +38,8 @@ const Index: NextPage<Props> = ({ comics }) => {
   }, [currentPage]);
   const cantidadPaginas: number =
     comics?.data?.total !== undefined ? Math.ceil(comics.data.total / 12) : 1;
+    console.log(comicsData);
+    
   return (
     <>
       <Head>
@@ -51,7 +55,7 @@ const Index: NextPage<Props> = ({ comics }) => {
               : comicsData.data?.results
           }
         />
-        <Paginacion cantidadPaginas={cantidadPaginas} setCurrentPage={setCurrentPage} />
+        <PaginationComponent cantidadPaginas={cantidadPaginas} setCurrentPage={setCurrentPage} />
       </BodySingle>
     </>
   );

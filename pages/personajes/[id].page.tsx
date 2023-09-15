@@ -1,20 +1,14 @@
 import { Box, Stack, Typography } from "@mui/material";
 import BodySingle from "dh-marvel/components/layouts/body/single/body-single";
-import GridLayout from "dh-marvel/components/layouts/grid-layout/grid-layout.component";
 import { Cargando } from "dh-marvel/components/cargando/cargando.component";
 import {
   getCharacter,
   getCharacters,
-  getComicsByCharacterId,
-  getComicsById,
 } from "dh-marvel/services/marvel/marvel.service";
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import Head from "next/head";
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
 import {
-  IComic,
-  IComicResponse,
   IPersonaje,
   IPersonajeResponse,
 } from "types/index.types";
