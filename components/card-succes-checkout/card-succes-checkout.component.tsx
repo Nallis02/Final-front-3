@@ -27,8 +27,8 @@ const CardSuccessCheckout: NextPage<CardSuccessCheckoutProps> = ({ data }) => {
       <Stack
         direction={{ sm: "column", md: "row" }}
       >
-        <Box>
-          <Typography variant="h5">{data.order.name}</Typography>
+        <Box  >
+          <Typography variant="h5" paddingBottom={5}>{data.order.name}</Typography>
           <Box
             component="img"
             alt={data.order.name}
@@ -43,16 +43,16 @@ const CardSuccessCheckout: NextPage<CardSuccessCheckoutProps> = ({ data }) => {
             width: "100%",
           }}
         >
-          <Typography variant="h5">Datos de entrega:</Typography>
-          <Typography paddingBottom={1}>
+          <Typography variant="h5" marginTop={5} marginLeft={ 2}>Datos de entrega:</Typography>
+          <Typography paddingBottom={1} marginLeft={ 2}>
             Comprador {data?.customer.name}
             {data?.customer.lastname}
           </Typography>
-          <Typography paddingBottom={1}>
+          <Typography paddingBottom={1} marginLeft={ 2}>
             Dirección: {data?.customer.address.address1}
           </Typography>
           {data?.customer.address.address2 && (
-            <Typography paddingBottom={1}>
+            <Typography paddingBottom={1} marginLeft={2}>
               Dirección alternativa: {data?.customer.address.address2}
             </Typography>
           )}

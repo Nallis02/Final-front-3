@@ -10,6 +10,7 @@ import { ICheckout } from "types/index.types";
 import { Cargando } from "dh-marvel/components/cargando/cargando.component";
 import confetti from "canvas-confetti";
 import BodySingle from "dh-marvel/components/layouts/body/single/body-single";
+import Head from "next/head";
 
 const SuccesCheckout: NextPage = () => {
   const router = useRouter();
@@ -41,9 +42,11 @@ const SuccesCheckout: NextPage = () => {
 
   return (
     <BodySingle title="Resumen de la compra">
-      <link rel="icon" href="/marvel.jpg" />
-      <title>Resumen de la compra</title>
-      <Stack paddingTop={20} direction="column" alignItems="center">
+      <Head>
+        <link rel="icon" href="/marvel.jpg" />
+        <title>Resumen de la compra</title>
+      </Head>
+      <Stack direction="column" alignItems="center">
         <CardSuccessCheckout data={dataCheckout} />
         <NextLink href="/">
           <Button
