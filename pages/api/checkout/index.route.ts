@@ -1,14 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-import {
-  ERROR_CARD_DATA_INCORRECT,
-  ERROR_CARD_WITHOUT_AUTHORIZATION,
-  ERROR_CARD_WITHOUT_FUNDS,
-  ERROR_INCORRECT_ADDRESS,
-  ERROR_METHOD_NOT_ALLOWED,
-  ERROR_SERVER,
-} from "dh-marvel/services/checkout/checkout.errors";
-import { ICheckout } from "types/index.types";
 
+import { ICheckout } from "types/index.types";
+import { CARD_DATA_INCORRECT, CARD_WITHOUT_AUTHORIZATION, CARD_WITHOUT_FUNDS, ERROR_INCORRECT_ADDRESS, ERROR_METHOD_NOT_ALLOWED, SERVER_ERROR } from 'dh-marvel/components/forms/errors-submit-form';
 export const invalidAddress = "invalid";
 export const validCard = "4242424242424242";
 export const withoutFundsCard = "4141414141414141";
@@ -39,21 +32,19 @@ export default function handler(
       return;
     }
     if (body.card.number === withoutFundsCard) {
-      res.status(400).json(ERROR_CARD_WITHOUT_FUNDS);
+      res.status(400).json(CARD_WITHOUT_FUNDS);
       return;
     }
     if (body.card.number === withoutAuthorizationCard) {
-      res.status(400).json(ERROR_CARD_WITHOUT_AUTHORIZATION);
+      res.status(400).json(CARD_WITHOUT_AUTHORIZATION);
       return;
     }
     if (body.card.number === validCard) {
-      console.log(body.card.number === validCard);
-      
       res.status(200).json({ data: body });
       return;
     }
-    res.status(400).json(ERROR_CARD_DATA_INCORRECT);
+    res.status(400).json(CARD_DATA_INCORRECT);
   } catch (err) {
-    res.status(500).json(ERROR_SERVER);
+    res.status(500).json(SERVER_ERROR);
   }
 }

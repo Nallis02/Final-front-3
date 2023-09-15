@@ -1,11 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-import {
-  ERROR_BAD_PARAMETERS_REQUESTS,
-  ERROR_BAD_REQUEST,
-  ERROR_INVALID_CREDENTIALS,
-  ERROR_SERVER,
-} from "dh-marvel/services/comic/comic.errors";
+
 import { getComicsByCharacterId } from "dh-marvel/services/marvel/marvel.service";
+import { ERROR_BAD_PARAMETERS_REQUESTS, ERROR_BAD_REQUEST, ERROR_INVALID_CREDENTIALS, ERROR_SERVER } from "dh-marvel/components/forms/errors-submit-form";
 
 type Data = any | { error: string; message: string };
 

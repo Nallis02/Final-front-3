@@ -5,15 +5,9 @@ import handleCheckout, {
   withoutAuthorizationCard,
   withoutFundsCard,
 } from "dh-marvel/pages/api/checkout/index.route";
-import {
-  ERROR_CARD_DATA_INCORRECT,
-  ERROR_CARD_WITHOUT_AUTHORIZATION,
-  ERROR_CARD_WITHOUT_FUNDS,
-  ERROR_INCORRECT_ADDRESS,
-  ERROR_METHOD_NOT_ALLOWED,
-  ERROR_SERVER,
-} from "dh-marvel/services/checkout/checkout.errors";
+
 import { ICheckout } from "types/index.types";
+import { CARD_DATA_INCORRECT, CARD_WITHOUT_AUTHORIZATION, CARD_WITHOUT_FUNDS, ERROR_INCORRECT_ADDRESS, ERROR_METHOD_NOT_ALLOWED, SERVER_ERROR } from "dh-marvel/components/forms/errors-submit-form";
 
 describe("Checkout", () => {
   describe("al enviar un POST válido, datos de cliente y tarjeta", () => {
@@ -69,7 +63,7 @@ describe("Checkout", () => {
       await handleCheckout(req, res);
       expect(res._getStatusCode()).toBe(500);
       expect(JSON.parse(res._getData())).toEqual(
-        expect.objectContaining(ERROR_SERVER)
+        expect.objectContaining(SERVER_ERROR)
       );
     });
   });
@@ -85,7 +79,7 @@ describe("Checkout", () => {
       await handleCheckout(req, res);
       expect(res._getStatusCode()).toBe(400);
       expect(JSON.parse(res._getData())).toEqual(
-        expect.objectContaining(ERROR_CARD_WITHOUT_FUNDS)
+        expect.objectContaining(CARD_WITHOUT_FUNDS)
       );
     });
   });
@@ -101,7 +95,7 @@ describe("Checkout", () => {
       await handleCheckout(req, res);
       expect(res._getStatusCode()).toBe(400);
       expect(JSON.parse(res._getData())).toEqual(
-        expect.objectContaining(ERROR_CARD_WITHOUT_AUTHORIZATION)
+        expect.objectContaining(CARD_WITHOUT_AUTHORIZATION)
       );
     });
   });
@@ -117,7 +111,7 @@ describe("Checkout", () => {
       await handleCheckout(req, res);
       expect(res._getStatusCode()).toBe(400);
       expect(JSON.parse(res._getData())).toEqual(
-        expect.objectContaining(ERROR_CARD_DATA_INCORRECT)
+        expect.objectContaining(CARD_DATA_INCORRECT)
       );
     });
   });

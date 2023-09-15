@@ -16,11 +16,9 @@ const CardSuccessCheckout: NextPage<CardSuccessCheckoutProps> = ({ data }) => {
         width: "auto",
         justifyContent: "center",
         alignItems: "center",
-        padding: { xs: "20px" },
+        padding: { xs: "20px", sm: "50px 90px" },
         background: "#fcfcfc",
-
       }}
-      
     >
       <CheckCircleOutlineIcon color="success" sx={{ fontSize: "80px" }} />
       <Typography variant="h4" paddingBottom={5}>
