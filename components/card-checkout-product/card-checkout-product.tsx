@@ -9,7 +9,7 @@ type CardCheckoutProductProps = {
 
 const CardCheckoutProduct: NextPage<CardCheckoutProductProps> = ({ comic }) => {
   return (
-    <Box sx={{ height: "100%", width: 400 }}>
+    <Box >
       <Box
         display={"flex"}
         alignItems="center"
@@ -18,14 +18,13 @@ const CardCheckoutProduct: NextPage<CardCheckoutProductProps> = ({ comic }) => {
       >
         {!comic ? (
           <Skeleton
-            sx={{ height: 400, minWidth: "100%" }}
             animation="wave"
             variant="rectangular"
             data-testid="skeleton-image"
           />
         ) : (
           <Box
-            sx={{ minHeight: 400, minWidth: "100%" }}
+            sx={{width: "100%" }}
             component="img"
             src={`${comic.thumbnail?.path}.${comic.thumbnail?.extension}`}
             alt={comic.title}

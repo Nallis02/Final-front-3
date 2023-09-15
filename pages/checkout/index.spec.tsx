@@ -1,8 +1,8 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen, waitFor } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import Checkout from "./index.page";
 import { RouterContext } from "next/dist/shared/lib/router-context";
-import { NextRouter, useRouter } from "next/router";
+import { NextRouter } from "next/router";
 
 const createMockRouter = (router: Partial<NextRouter>): NextRouter => {
   return {
@@ -32,18 +32,26 @@ const createMockRouter = (router: Partial<NextRouter>): NextRouter => {
   };
 };
 
-let router = createMockRouter({});
 
 describe("ComicIDPage", () => {
   describe("al mostrar la página por defecto", () => {
     it("debe obtener los datos", async () => {
+      const router = createMockRouter({
+        pathname: "/checkout",
+        query: { comic: "82967" },
+        route: "/checkout?comic=82967",
+      });
+
       render(
         <RouterContext.Provider value={router}>
           <Checkout />
         </RouterContext.Provider>
       );
-      const title = screen.getByText("Marvel Previews (2017)");
-      expect(title).toBeInTheDocument();
+
+      await waitFor(() => {
+        const title = screen.getByText("Marvel Previews (2017)");
+        expect(title).toBeInTheDocument();
+      });
     });
   });
 });

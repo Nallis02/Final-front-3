@@ -32,12 +32,7 @@ const GeneralFooter = () => {
           alignItems="center"
           justifyContent={"center"}
         >
-          {/* <Image
-            // src=""
-            // alt="Digital House Logo"
-            // width={168}
-            // height={13}
-          /> */}
+
         </Box>
         <Typography> Nallive Trujillo</Typography>
       </Link>

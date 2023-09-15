@@ -41,8 +41,6 @@ export const marvelTheme = createTheme({
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
           backgroundPosition: "center",
-          width: "100%",
-          height: "800px",
           objectFit: "cover",
         },
       },

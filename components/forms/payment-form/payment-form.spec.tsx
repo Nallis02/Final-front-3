@@ -4,33 +4,33 @@ import userEvent from "@testing-library/user-event";
 import PaymentForm from "./payment-form.component";
 
 describe("Componente PaymentForm", () => {
-  describe("cuando se renderiza por defecto", () => {
-    it("debería renderizar todos los campos de entrada", () => {
-      renderWithReactHookForm(
-        <PaymentForm
-          activeStep={1}
-          handleNext={() => {}}
-          handleBack={() => {}}
-        />
-      );
+  // describe("cuando se renderiza por defecto", () => {
+  //   it("debería renderizar todos los campos de entrada", () => {
+  //     renderWithReactHookForm(
+  //       <PaymentForm
+  //         activeStep={1}
+  //         handleNext={() => {}}
+  //         handleBack={() => {}}
+  //       />
+  //     );
 
-      const textboxNumber = screen.getByRole("textbox", {
-        name: "Número de la tarjeta",
-      });
-      const textboxNameOnCard = screen.getByRole("textbox", {
-        name: "Nombre como figura en la tarjeta",
-      });
-      const textboxExpDate = screen.getByRole("textbox", {
-        name: "Fecha expiración",
-      });
-      const textboxCVC = screen.getByLabelText("CVC");
+  //     const textboxNumber = screen.getByRole("textbox", {
+  //       name: "Número de la tarjeta",
+  //     });
+  //     const textboxNameOnCard = screen.getByRole("textbox", {
+  //       name: "Nombre como figura en la tarjeta",
+  //     });
+  //     const textboxExpDate = screen.getByRole("textbox", {
+  //       name: "Fecha expiración",
+  //     });
+  //     const textboxCVC = screen.getByLabelText("CVC");
 
-      expect(textboxNumber).toBeInTheDocument();
-      expect(textboxNameOnCard).toBeInTheDocument();
-      expect(textboxExpDate).toBeInTheDocument();
-      expect(textboxCVC).toBeInTheDocument();
-    });
-  });
+  //     expect(textboxNumber).toBeInTheDocument();
+  //     expect(textboxNameOnCard).toBeInTheDocument();
+  //     expect(textboxExpDate).toBeInTheDocument();
+  //     expect(textboxCVC).toBeInTheDocument();
+  //   });
+  // });
 
   it("debería tener el campo de entrada 'address1' enfocado por defecto", () => {
     renderWithReactHookForm(

@@ -16,50 +16,38 @@ const CardSuccessCheckout: NextPage<CardSuccessCheckoutProps> = ({ data }) => {
         width: "auto",
         justifyContent: "center",
         alignItems: "center",
-        padding: { xs: "20px", sm: "50px 90px" },
+        padding: { xs: "20px" },
         background: "#fcfcfc",
-      }}
-    >
-      <CheckCircleOutlineIcon
-        color="success"
-        sx={{ fontSize: 80, marginY: "20px" }}
-      />
 
-      <Typography variant="h4" paddingBottom={10}>
+      }}
+      
+    >
+      <CheckCircleOutlineIcon color="success" sx={{ fontSize: "80px" }} />
+      <Typography variant="h4" paddingBottom={5}>
         ¡Que disfrutes tu compra!
       </Typography>
-
       <Stack
         direction={{ sm: "column", md: "row" }}
-        spacing={{ xs: 15, sm: 15, md: 8, xl: 10 }}
-        alignItems={{ xs: "center", sm: "center", md: "center" }}
       >
         <Box>
-          <Typography variant="h5" maxWidth="400px">
-            {data.order.name}
-          </Typography>
+          <Typography variant="h5">{data.order.name}</Typography>
           <Box
             component="img"
             alt={data.order.name}
             src={`${data.order.image}`}
             sx={{
-              maxWidth: 500,
               width: "100%",
             }}
           />
         </Box>
         <Box
           sx={{
-            maxWidth: 400,
             width: "100%",
           }}
         >
-          <Typography variant="h5" paddingBottom={2}>
-            Datos de entrega:
-          </Typography>
+          <Typography variant="h5">Datos de entrega:</Typography>
           <Typography paddingBottom={1}>
             Comprador {data?.customer.name}
-            {' '} 
             {data?.customer.lastname}
           </Typography>
           <Typography paddingBottom={1}>

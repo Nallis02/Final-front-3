@@ -40,7 +40,7 @@ const Personajes: NextPage<Props> = ({ personaje }) => {
           content={`${personaje.name}.${personaje.description}`}
         />
       </Head>
-      <BodySingle title="Personajes">
+      <BodySingle>
         <Typography
           gutterBottom
           variant="h3"

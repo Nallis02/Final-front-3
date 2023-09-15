@@ -1,6 +1,6 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import GeneralFooter from "dh-marvel/components/layouts/footer/general-footer.component";
+import GeneralFooter from "./general-footer.component";
 
 
 export default {
