@@ -27,7 +27,7 @@ const Index: NextPage<Props> = ({ comics }) => {
     if (currentPage !== null) {
       router.push(`/?page=${currentPage}`, undefined, { shallow: true });
 
-      getComics(CANTIDAD_TARJETAS, currentPage).then(
+      getComics( currentPage, CANTIDAD_TARJETAS).then(
         (data: IComicResponse) => {
           if (data.code === 200) {
             setComicsData(data);
@@ -38,7 +38,6 @@ const Index: NextPage<Props> = ({ comics }) => {
   }, [currentPage]);
   const cantidadPaginas: number =
     comics?.data?.total !== undefined ? Math.ceil(comics.data.total / 12) : 1;
-    console.log(comicsData);
     
   return (
     <>
